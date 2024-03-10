@@ -25,18 +25,25 @@ project's tests.
 ## Example usage
 
 - Example 1:
+```
 uses: actions/zephyr-build-env-action@v1
 with:
     command: 'build'
+```
 
 - Example 2:
+```
 uses: actions/zephyr-build-env-action@v1
 with:
     command: 'build'
     directory: '${{ github.workspace }}/subdirectory'
+```
 
 - Example 3:
+```
 uses: actions/zephyr-build-env-action@v1
 with:
     command: 'build'
     board: 'qemu_x86'
+```
+
