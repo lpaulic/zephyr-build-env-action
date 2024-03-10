@@ -1,0 +1,23 @@
+name: 'Zephyr build environemnt action'
+description: 'Container action that uses zephyrproject-rtos docker as build environemnt'
+inputs:
+  command:
+    description: 'What command to run inside docker. Available options: "build" or "test".'
+    required: false
+    default: 'build'
+  board:
+    description: 'Zephyr supported board for which to build the source code for.'
+    required: false
+    default: 'native_posix'
+  directory:
+    description: 'Absolute path to the directory to be built. Default value is Github worksapce variable value.'
+    required: false 
+    default: ${{ github.workspace }}
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.command }}
+    - ${{ inputs.board }}
+    - ${{ inputs.directory }}
